@@ -1,0 +1,20 @@
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    padding: 20px 20px 10px 20px;
+}
+.card-container .character-card {
+    width: 32%;
+    border-radius: 4px;
+    background-color: white;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    color: gray;
+}
+h4 {
+    font-size: 24px
+}

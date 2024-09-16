@@ -1,10 +1,12 @@
 import React from "react";
 import "./Header.css"
+import Navbar from "../Navbar/Navbar";
 
 const Header = () => {
     return (
     <nav>
-        {/*<Navbar admin= "Admin" pages="Pages" charts="Charts" tables="Tables"/>*/} {/*aca va la barra de navegacion*/}
+        <Navbar />
+        <img src="/film.png" className="logo-img" alt="film" />
     </nav>
     );
   }

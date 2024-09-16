@@ -16,3 +16,7 @@ body {
     margin: 0;
     background-color: #eee;
 }
+.logo img {
+    width: 250px; 
+    margin-top: 10px;
+  }
