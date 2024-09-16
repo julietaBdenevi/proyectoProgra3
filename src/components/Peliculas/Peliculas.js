@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import "./Peliculas.css"
-import PeliculaCard from "../CardPelicula/CardPelicula"
+import CardPelicula from "../CardPelicula/CardPelicula"
 
-const API_KEY = ""
-const peliculasPopulares = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
-const peliculasTopRated = `https://api.themoviedb.org/3/movie/top_ratedapi_key=${API_KEY}`
+const API_KEY = "9458a99baf5a9ba3fe341cd43217ef95";
+const peliculasPopulares = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`;
+const peliculasTopRated = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`;
 
 class Peliculas extends Component {
     constructor() {
@@ -38,7 +38,7 @@ class Peliculas extends Component {
                 <div>
                     {this.state.populares.length > 0 ? (
                         this.state.populares.map((pelicula) => (
-                            <PeliculaCard
+                            <CardPelicula
                                 key={pelicula.id}
                                 pelicula={pelicula}
                             />
@@ -55,7 +55,7 @@ class Peliculas extends Component {
                 <div>
                     {this.state.populares.length > 0 ? (
                         this.state.topRate.map((pelicula) => (
-                            <PeliculaCard
+                            <CardPelicula
                                 key={pelicula.id}
                                 pelicula={pelicula}
                             />
