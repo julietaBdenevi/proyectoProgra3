@@ -18,16 +18,16 @@ class Peliculas extends Component {
     componentDidMount() {
         fetch(peliculasPopulares)
             .then(response => response.json())
-            .then(data => this.setState(
+            .then(data => {this.setState(
                 { populares: data.results.filter((_, i) => i < 5) } /*Traigo los primeros 5 elementos - 5 peliculas populares*/
-            ))
+            )})
             .catch((error) => console.log(error));
 
         fetch(peliculasTopRated)
             .then(response => response.json())
-            .then(data => this.setState(
+            .then(data => {this.setState(
                 { topRate: data.results.filter((_, i) => i < 5) }
-            ))
+            )})
             .catch((error) => console.log(error));
     }
     render() {
