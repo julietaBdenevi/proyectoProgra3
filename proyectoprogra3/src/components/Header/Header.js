@@ -6,7 +6,7 @@ const Header = () => {
     return (
     <nav>
         <Navbar />
-        <img src="/film.png" className="logo-img" alt="film" />
+        <img src="../film.png" className="logo-img" alt="film" />
     </nav>
     );
   }

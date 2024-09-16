@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import "./Peliculas.css"
 import PeliculaCard from "../CardPelicula/CardPelicula"
 
@@ -36,8 +36,8 @@ class Peliculas extends Component {
                 <section className="card-container">
                     <h2>Películas Populares</h2>
                 <div>
-                    {populares.length > 0 ? (
-                        populares.map((pelicula) => (
+                    {this.state.populares.length > 0 ? (
+                        this.state.populares.map((pelicula) => (
                             <PeliculaCard
                                 key={pelicula.id}
                                 pelicula={pelicula}
@@ -53,8 +53,8 @@ class Peliculas extends Component {
             <section className="card-container">
                     <h2>Películas Top Rated</h2>
                 <div>
-                    {populares.length > 0 ? (
-                        topRate.map((pelicula) => (
+                    {this.state.populares.length > 0 ? (
+                        this.state.topRate.map((pelicula) => (
                             <PeliculaCard
                                 key={pelicula.id}
                                 pelicula={pelicula}
