@@ -4,29 +4,28 @@ class PeliculaCardPopular extends Component{
     constructor() {
         super();
         this.state = {
-            descripcion: null
-        }};
-
-    //mostrarDescripcion(){
-        //this.setState(){
-        //    descripcion 
-      //  }
-    //};
-
+            descripcion: null,
+            
+        }
+    };
+   
     render(){
         const {pelicula} = this.props;
         return(
-            <>
-            <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
-          alt={pelicula.title}
-        />
-        <h1>{pelicula.title}</h1>
+            <> 
+                <h1>{pelicula.title}</h1>
+                <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
+                alt={pelicula.title} />
+                
+
+               
+                
         
-        </>
+            </>
         )
     };
-    
+
 
 }
 
-export default PeliculaCardPopular
+export default PeliculaCardPopular;
