@@ -11,7 +11,7 @@ class PeliculasPopulares extends Component {
         this.state = {
             populares: [],
             verMas: false,
-            textoBoton: "ver mas"
+            textoBoton: "Ver más"
             
         };
     }

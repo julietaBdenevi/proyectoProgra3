@@ -6,6 +6,7 @@ import Home from "./pages/Home.js";
 import Peliculas from "./pages/Peliculas.js";
 import NotFound from "./pages/NotFound.js";
 import Populares from './pages/Populares.js';
+import TopRated from './pages/TopRated.js';
 
 
 
@@ -19,7 +20,7 @@ function App() {
         <Route exact path="/" component={Home}/>
         <Route path="/peliculas" exact={true} component={Peliculas}/>
         <Route path="/peliculas/populares" component={Populares}/>
-        <Route path="/peliculas/toprated" component={Peliculas}/>
+        <Route path="/peliculas/toprated" component={TopRated}/>
         <Route path="" component={NotFound}/>
       </Switch>
       <Footer />
