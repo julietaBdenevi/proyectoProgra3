@@ -19,8 +19,8 @@ function App() {
         <Route path="/peliculas" exact={true} component={Peliculas}/>
         <Route path="/peliculas/populares" component={Populares}/>
         <Route path="/peliculas/toprated" component={TopRated}/>
-        <Route path="/peliculas/toprated" component={Busqueda}/>
-        <Route path="/busqueda" component={NotFound}/>
+        <Route path="/busqueda" component={Busqueda}/>
+        <Route path="/" component={NotFound}/>
       </Switch>
       <Footer />
     </>
