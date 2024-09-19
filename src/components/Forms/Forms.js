@@ -1,28 +1,44 @@
 import { Component } from "react";
-import "./Form.css"
-class Formulario extends Component{
-    constructor(props){
+
+
+class Form extends Component {
+    constructor(props) {
         super(props);
-        this.state = {valor:""};
+        this.state = {
+            query: "",
+        };
     }
 
-    evitarSubmit(event){
-        event.preventDefault();
+    handleCancelSubmit(e) {
+        e.preventDefault();
     }
 
-    controlarCambios(event){
-        this.setState({valor: event.target.value});
+    handleFormChange(e) {
+        this.setState({
+            query: e.target.value,
+        });
     }
 
-    render(){
-        return(
-            <form onSubmit={(event)=> this.evitarSubmit(event)}>
-                <label>Name:</label> {/*A chequear que ponemos en el label --> Es una busqueda, algo como nombre pelicula?*/}
-                <input type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor}/>
-                <button type="submit"> Buscar </button>
-            </form>
-        )
+    handleFormSubmit() {
+        this.props.history.push('/busqueda',{query: this.state.query});
     }
 
+    render() {
+        return (
+            <div>
+                <form onSubmit={(e) => this.handleCancelSubmit(e)}>
+                    <input
+                        name="query"
+                        onChange={(e) => this.handleFormChange(e)}
+                        value={this.state.query}
+                    />
+                    <button type="button" onClick={() => this.handleFormSubmit()}>
+                        Search
+                    </button>
+                </form>
+            </div>
+        );
+    }
 }
-export default Formulario;
+
+export default Form;

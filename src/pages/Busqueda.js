@@ -26,6 +26,10 @@ class Busqueda extends Component {
     render() {
         return (
             <>
+            {/*ESTO ES PARA FORM BUSQUEDA*/}
+            <p>{this.props.location.state.query}</p>
+
+            {/*ESTO ES PARA CARGANDO*/}
                 {!this.state.cargando ? (
                     <Peliculas movies={this.state.pelis} />
                 ) : (

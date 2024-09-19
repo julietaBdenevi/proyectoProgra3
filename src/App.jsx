@@ -7,9 +7,7 @@ import Peliculas from "./pages/Peliculas.js";
 import NotFound from "./pages/NotFound.js";
 import Populares from './pages/Populares.js';
 import TopRated from './pages/TopRated.js';
-
-
-
+import Busqueda from './pages/Busqueda.js'
 
 
 function App() {
@@ -21,7 +19,8 @@ function App() {
         <Route path="/peliculas" exact={true} component={Peliculas}/>
         <Route path="/peliculas/populares" component={Populares}/>
         <Route path="/peliculas/toprated" component={TopRated}/>
-        <Route path="" component={NotFound}/>
+        <Route path="/peliculas/toprated" component={Busqueda}/>
+        <Route path="/busqueda" component={NotFound}/>
       </Switch>
       <Footer />
     </>
