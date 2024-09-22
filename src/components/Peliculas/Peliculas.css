@@ -1,7 +1,7 @@
 .card-container {
     margin: 20px 0;
     padding: 20px;
-    background-color: #141414;
+    background-color: #000c5d;
     border-radius: 5px;
   }
   
@@ -14,6 +14,7 @@
   
   .cards-wrapper {
     display: flex;
+    overflow-x: auto;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
@@ -29,13 +30,13 @@
     display: block;
     margin-top: 20px;
     text-align: center;
-    color: #e50914;
+    color: #9c32ff;
     text-decoration: none;
     font-size: 16px;
   }
   
   .view-all-link:hover {
-    color: #f40612;
+    color: #8044c0d6;
     text-decoration: underline;
   }
   

@@ -1,28 +1,73 @@
+
 .card-pelicula {
-    background-color: #222;
-    padding: 15px;
-    border-radius: 8px;
-    color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-width: 250px; 
-  }
-  
-  .pelicula-img {
-    max-width: 100%;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    width: 100%;
-    height: auto; 
-  }
-  
-  .descripcion-section {
-    margin-bottom: 10px;
-    color: #ccc;
-   
+    background-color: #1c1c1c;
+    border-radius: 10px;
     overflow: hidden;
-    text-overflow: ellipsis;
-  }
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 200px; 
+    margin: 15px;
+    text-align: center;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+}
+
+
+.card-pelicula:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+
+.pelicula-img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover; 
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.pelicula-title {
+    font-size: 18px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+
+.toggle-descripcion {
+    font-size: 14px;
+    color: #9809e5;
+    cursor: pointer;
+}
+
+.toggle-descripcion:hover {
+    text-decoration: underline;
+}
+
+
+.descripcion-section {
+    background-color: #2a2a2a;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+    color: #d3d3d3;
+}
+
+
+.detalle-link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #9809e5;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.detalle-link:hover {
+    color: #bd06f4;
+    text-decoration: underline;
+}
+
   

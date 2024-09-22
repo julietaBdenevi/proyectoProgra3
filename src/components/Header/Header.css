@@ -8,6 +8,8 @@
   }
   
   .header .logo {
+    width: 170px;
+    margin-top: 5px;
     font-size: 24px;
     font-weight: bold;
   }
@@ -23,6 +25,6 @@
   }
   
   .header nav a:hover {
-    color: #e50914;
+    color: #b75fff;
   }
   
