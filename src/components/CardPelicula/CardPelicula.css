@@ -1,0 +1,28 @@
+.card-pelicula {
+    background-color: #222;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 250px; 
+  }
+  
+  .pelicula-img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto; 
+  }
+  
+  .descripcion-section {
+    margin-bottom: 10px;
+    color: #ccc;
+   
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  

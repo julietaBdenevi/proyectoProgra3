@@ -1,20 +1,41 @@
-
 .card-container {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #141414;
+    border-radius: 5px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .cards-wrapper {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    background-color: whitesmoke;
-    padding: 20px 20px 10px 20px;
-}
-.card-container .character-card {
-    width: 32%;
-    border-radius: 4px;
-    background-color: white;
-    margin-bottom: 10px;
-    padding: 0 20px;
-    color: gray;
-}
-h4 {
-    font-size: 24px
-}
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .no-movies {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .view-all-link {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #e50914;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .view-all-link:hover {
+    color: #f40612;
+    text-decoration: underline;
+  }
+  

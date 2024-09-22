@@ -1,5 +1,5 @@
 import { Component } from "react";
-
+import "./Form.css";  // Asegúrate de que el archivo Forms.css esté importado
 
 class Form extends Component {
     constructor(props) {
@@ -20,19 +20,20 @@ class Form extends Component {
     }
 
     handleFormSubmit() {
-        this.props.history.push('/busqueda',{query: this.state.query});
+        this.props.history.push('/busqueda', { query: this.state.query });
     }
 
     render() {
         return (
-            <div>
+            <div className="form-container">
                 <form onSubmit={(e) => this.handleCancelSubmit(e)}>
                     <input
                         name="query"
                         onChange={(e) => this.handleFormChange(e)}
                         value={this.state.query}
+                        className="form-input"
                     />
-                    <button type="button" onClick={() => this.handleFormSubmit()}>
+                    <button type="button" onClick={() => this.handleFormSubmit()} className="form-button">
                         Search
                     </button>
                 </form>

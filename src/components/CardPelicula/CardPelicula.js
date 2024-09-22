@@ -1,5 +1,5 @@
-/*Mirar ejercicios de la clase 6bis --> Vicky*/
 import React, { Component } from "react";
+import "./CardPelicula.css";
 
 class CardPelicula extends Component {
     constructor() {
@@ -13,33 +13,36 @@ class CardPelicula extends Component {
     verDescripcion() {
         this.setState({
             verDescripcion: !this.state.verDescripcion
-        })
+        });
     }
 
     render() {
-        const { pelicula} = this.props;
+        const { pelicula } = this.props;
         return (
-            <>
-                <img src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
+            <div className="card-pelicula">
+                <img
+                    src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
                     alt={pelicula.title}
+                    className="pelicula-img"
                 />
-                <h1>{pelicula.title}</h1>
-                <p onClick={() => this.verDescripcion()}>
+                <h3 className="pelicula-title">{pelicula.title}</h3>
+                <p
+                    className="toggle-descripcion"
+                    onClick={() => this.verDescripcion()}
+                >
                     {this.state.verDescripcion ? "Ocultar Descripción" : "Ver Descripción"}
                 </p>
                 {this.state.verDescripcion && (
-                    <section>
-                        <p>{pelicula.overview} </p>
+                    <section className="descripcion-section">
+                        <p>{pelicula.overview}</p>
                     </section>
                 )}
-                <a href={`/detalle/id/${pelicula.id}`}>Detalle</a> {/*cambiar a ruta correspondiente*/}
-
-                
-            </>
-        )
-    };
-
-
+                <a href={`/detalle/id/${pelicula.id}`} className="detalle-link">
+                    Detalle
+                </a>
+            </div>
+        );
+    }
 }
 
 export default CardPelicula;
