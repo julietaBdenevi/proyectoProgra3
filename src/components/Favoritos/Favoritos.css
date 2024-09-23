@@ -1,0 +1,22 @@
+.favoritos-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 16px; 
+    padding: 20px;
+  }
+  
+  .card {
+    width: 200px;
+    flex: 1 1 auto; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    overflow: hidden; 
+    background-color: white; 
+    transition: transform 0.2s; 
+  }
+  
+  .card:hover {
+    transform: scale(1.05); 
+  }
+  
