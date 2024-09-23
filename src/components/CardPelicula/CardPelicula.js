@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import "./CardPelicula.css";
 
 class CardPelicula extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             verDescripcion: false,
             esFavorito: false
@@ -17,7 +17,8 @@ class CardPelicula extends Component {
     }
 
     render() {
-        const { pelicula } = this.props;
+        const { pelicula, esFavorito, agregarFav } = this.props;
+
         return (
             <div className="card-pelicula">
                 <img
@@ -37,8 +38,20 @@ class CardPelicula extends Component {
                         <p>{pelicula.overview}</p>
                     </section>
                 )}
-                <a href={`/detail/${pelicula.id}`} className="detalle-link">
-                     Detalle </a>
+                <a href={`/detail/${pelicula.id}`} className="detalle-link">Detalle </a>
+                
+                <p>
+                {esFavorito(pelicula.id) ? (
+                    <button className="fav-button remove" onClick={() => agregarFav(pelicula.id)}>
+                        Quitar de favoritos
+                    </button>
+                ) : (
+                    <button className="fav-button add" onClick={() => agregarFav(pelicula.id)}>
+                        Agregar a favoritos
+                    </button>
+                )}
+                </p>
+                
             </div>
         );
     }

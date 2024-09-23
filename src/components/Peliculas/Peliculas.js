@@ -12,7 +12,7 @@ class Peliculas extends Component {
         this.state = {
             populares: [],
             topRate: [],
-            favoritas: [],
+            favoritos: [],
         };
     }
 
@@ -36,6 +36,21 @@ class Peliculas extends Component {
             .catch((error) => console.log(error));
     }
 
+    agregarFav = (id) => {
+        let { favoritos } = this.state;
+        if (favoritos.includes(id)) {
+          favoritos = favoritos.filter((favoritoId) => favoritoId !== id);
+        } else {
+          favoritos.push(id);
+        }
+        localStorage.setItem("favoritos", JSON.stringify(favoritos));
+          this.setState({ favoritos });
+      };
+    
+      esFavorito = (id) => {
+        return this.state.favoritos.includes(id);
+      };
+
     render() {
         return (
             <>
@@ -44,7 +59,7 @@ class Peliculas extends Component {
                     <div className="cards-wrapper">
                         {this.state.populares.length > 0 ? (
                             this.state.populares.map((pelicula) => (
-                                <CardPelicula key={pelicula.id} pelicula={pelicula} />
+                                <CardPelicula key={pelicula.id} pelicula={pelicula} esFavorito={this.esFavorito} agregarFav={this.agregarFav} />
                             ))
                         ) : (
                             <p className="no-movies">No hay películas populares disponibles.</p>
@@ -60,7 +75,7 @@ class Peliculas extends Component {
                     <div className="cards-wrapper">
                         {this.state.topRate.length > 0 ? (
                             this.state.topRate.map((pelicula) => (
-                                <CardPelicula key={pelicula.id} pelicula={pelicula} />
+                                <CardPelicula key={pelicula.id} pelicula={pelicula} esFavorito={this.esFavorito} agregarFav={this.agregarFav} />
                             ))
                         ) : (
                             <p className="no-movies">No hay películas top rated disponibles.</p>
@@ -70,6 +85,7 @@ class Peliculas extends Component {
                         Ver Todas - Películas Top Rated
                     </a>
                 </section>
+                
             </>
         );
     }

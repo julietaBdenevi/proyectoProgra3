@@ -70,4 +70,11 @@
     text-decoration: underline;
 }
 
+.fav-button.add {
+    background-color: #bd06f4;
+}
+
+.fav-button.remove {
+    background-color: white;
+}
   
