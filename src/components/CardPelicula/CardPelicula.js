@@ -37,9 +37,8 @@ class CardPelicula extends Component {
                         <p>{pelicula.overview}</p>
                     </section>
                 )}
-                <a href={`/detalle/id/${pelicula.id}`} className="detalle-link">
-                    Detalle
-                </a>
+                <a href={`/detail/${pelicula.id}`} className="detalle-link">
+                     Detalle </a>
             </div>
         );
     }
