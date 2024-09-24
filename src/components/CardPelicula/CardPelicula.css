@@ -70,11 +70,33 @@
     text-decoration: underline;
 }
 
+.fav-button {
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    color: white; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.2s; 
+    font-size: 16px; 
+    
+}
+
 .fav-button.add {
-    background-color: #bd06f4;
+    background-color: #9c32ff;
+}
+
+.fav-button.add:hover {
+    background-color: #a500d0; 
+    transform: scale(1.05); 
 }
 
 .fav-button.remove {
-    background-color: white;
+    background-color: white; 
+    color: #9c32ff; 
+    border: 2px solid #9c32ff; 
 }
-  
+
+.fav-button.remove:hover {
+    background-color: #f0f0f0; 
+    transform: scale(1.05); 
+}

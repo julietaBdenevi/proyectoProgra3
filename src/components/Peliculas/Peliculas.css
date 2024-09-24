@@ -1,42 +1,82 @@
 .card-container {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: #000c5d;
-    border-radius: 5px;
-  }
-  
-  .section-title {
-    font-size: 24px;
-    color: white;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .cards-wrapper {
-    display: flex;
-    overflow-x: auto;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  .no-movies {
-    color: white;
-    text-align: center;
-    font-size: 18px;
-  }
-  
-  .view-all-link {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    color: #9c32ff;
-    text-decoration: none;
-    font-size: 16px;
-  }
-  
-  .view-all-link:hover {
-    color: #8044c0d6;
-    text-decoration: underline;
-  }
-  
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #141414; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.section-title {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
+}
+
+.cards-wrapper {
+  display: flex;
+  overflow-x: auto; 
+  flex-wrap: nowrap; 
+  gap: 20px;
+  justify-content: center;
+  padding: 10px; 
+}
+
+.card {
+  background-color: #1c1c1c; 
+  border-radius: 5px; 
+  padding: 15px; 
+  width: 200px; 
+  color: white; 
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+}
+
+.card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.no-movies {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+}
+
+.view-all-link {
+  display: inline-block; 
+  margin: 20px auto; 
+  text-align: center;
+  color: white; 
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  background-color: #9c32ff; 
+  border-radius: 5px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+  transition: background-color 0.3s, transform 0.3s; 
+}
+
+.view-all-link:hover {
+  background-color: #8810b7; 
+  transform: translateY(-2px); 
+  text-decoration: none; 
+}
+
+.cards-wrapper {
+  display: flex;
+  overflow-x: auto; 
+  flex-wrap: nowrap; 
+  gap: 20px;
+  justify-content: center; 
+  padding: 10px; 
+}
+
+.card-container {
+  text-align: center; 
+}
+
+body {
+  background-color: #383838;
+}

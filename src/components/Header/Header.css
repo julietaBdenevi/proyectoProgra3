@@ -5,6 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 8px;
   }
   
   .header .logo {
@@ -12,7 +13,7 @@
     margin-top: 5px;
     font-size: 24px;
     font-weight: bold;
-    border-radius: 10%;
+    border-radius: 8px;
   }
   
   .header nav {
