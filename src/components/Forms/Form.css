@@ -24,7 +24,8 @@
 
 .form-container button {
   width: 100%; 
-  padding: 8px;
+  padding: 8px; 
+  background-color: #9c32ff;
   color: white;
   border: none;
   border-radius: 4px;
