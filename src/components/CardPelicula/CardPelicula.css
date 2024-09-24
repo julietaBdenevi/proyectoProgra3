@@ -100,3 +100,40 @@
     background-color: #f0f0f0; 
     transform: scale(1.05); 
 }
+@media (max-width: 390px) {
+    .card-pelicula {
+        width: 95%;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    .pelicula-img {
+        height: auto;
+        max-height: 200px;
+    }
+
+    .pelicula-title {
+        font-size: 14px;
+        margin: 6px 0;
+    }
+
+    .toggle-descripcion {
+        font-size: 12px;
+    }
+
+    .descripcion-section {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .fav-button {
+        padding: 6px 10px;
+        font-size: 12px;
+        margin-top: 8px;
+    }
+
+    .detalle-link {
+        font-size: 12px;
+        margin-top: 8px;
+    }
+}

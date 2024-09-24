@@ -49,3 +49,21 @@
 .main-nav li:hover::after {
   width: 100%; 
 }
+@media (max-width: 390px) {
+  .navbar {
+      padding: 10px;
+      flex-direction: column;
+      align-items: self-start;
+  }
+
+  .main-nav {
+      flex-direction: column;
+      gap: 10px;
+      width: 300px;
+  }
+
+  .navbar a {
+      padding: 8px 12px;
+      font-size: 14px;
+  }
+}
