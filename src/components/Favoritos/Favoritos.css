@@ -20,11 +20,14 @@
     transform: scale(1.05); 
   }
   
-  h2{
+  h2 {
     font-weight: bold;
     color: white;
     margin-left: 30px;
-  }
+    font-size: 28px; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 100);
+    letter-spacing: 1px; 
+}
 
   @media (max-width: 768px) {
     .favoritos-container {

@@ -12,7 +12,10 @@
   margin-bottom: 20px;
   text-align: center;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
+  background-color: #383838;
+  border-radius: 8px;
 }
+
 
 .cards-wrapper {
   display: flex;
@@ -89,6 +92,7 @@ body {
   .section-title {
       font-size: 20px;
       margin-bottom: 15px;
+      background-color: #383838;
   }
 
   .cards-wrapper {
