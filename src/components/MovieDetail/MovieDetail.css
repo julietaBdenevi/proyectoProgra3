@@ -95,3 +95,49 @@
     background-color: #a500d0; 
     transform: scale(1.05); 
 }
+
+@media (max-width: 390px) {
+    .detail-container {
+        margin: 15px 0;
+        padding: 15px;
+    }
+
+    .detail-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .detail-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .detail-img {
+        width: 150px;
+    }
+
+    .detail-genres {
+        font-size: 14px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .toggle-descripcion {
+        font-size: 12px;
+    }
+
+    .descripcion-section {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .back-link {
+        font-size: 14px;
+    }
+
+    .favorite-button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
