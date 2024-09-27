@@ -1,63 +1,94 @@
 import React, {Component} from "react";
 import PeliculaCardPopular from "../PeliculaCardPopular/PeliculaCardPopular";
 
-const API_KEY = "9458a99baf5a9ba3fe341cd43217ef95";
-const peliculasPopulares = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`;
+
 
 
 class PeliculasPopulares extends Component {
     constructor() {
         super();
         this.state = {
-            populares: [],
-            verMas: false,
-            textoBoton: "Ver más"
+            movies: [],
+            filteredMovies:[],
+             filterValue: "",
+             actualPage: 1,
+            
             
         };
     }
-    handleVerMas(){
-        this.setState({
-            verMas: !this.state.verMas // lógica: si es true, muestra todas las pelis. Si es false, solo 5. 
-        })
-    }
+   
     componentDidMount() {
-        fetch(peliculasPopulares)
+        fetch( `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${this.state.actualPage}`, {
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYzc2ZDIwMzMyMGZjMzQzZDAwMGU1OGVmODVkN2Y2NSIsIm5iZiI6MTcyNzE4NTAxNS4zMTI3NTksInN1YiI6IjY1NGQxOTMyYjE4ZjMyMDBmZmVjZDRjNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ah_71jyFfszrnPZ94x8bjVsYQSHGCAg2JuI9r3iNb8w`
+            }
+        })
+
             .then(response => response.json())
             .then(data => {this.setState(
-                { populares: data.results } 
+                { movies: data.results,
+                    filteredMovies: data.results,
+                    actualPage: this.state.actualPage + 1
+                 } 
             )})
             .catch((error) => console.log(error));
 
         
     }
+    handleFilter(e){
+        const userValue = e.target.value;
+        this.setState({
+            filterValue: userValue,
+            filteredMovies: this.state.movies.filter((movie) =>
+                movie.title.toLowerCase().includes(userValue.toLowerCase()))
+        })
+    }
+
+    handleLoadMore(){
+        fetch(`https://api.themoviedb.org/3/movie/top_rated?page=${this.state.actualPage}`, {
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYzc2ZDIwMzMyMGZjMzQzZDAwMGU1OGVmODVkN2Y2NSIsIm5iZiI6MTcyNzE4NTAxNS4zMTI3NTksInN1YiI6IjY1NGQxOTMyYjE4ZjMyMDBmZmVjZDRjNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ah_71jyFfszrnPZ94x8bjVsYQSHGCAg2JuI9r3iNb8w`
+            }
+        })
+        .then(response => response.json())
+        .then(data => this.setState({
+            movies: this.state.movies.concat(data.results),
+            filteredMovies: this.state.filteredMovies.concat(data.results),
+            actualPage: this.state.actualPage + 1
+            })
+        )
+        .catch((err) => console.log(err));
+        
+    }
+    handleResetFilter(){
+        this.setState({
+            filterValue: '',
+            filteredMovies: this.state.movies
+        })
+     }
     render() {
 
-        const {populares, verMas} = this.state;
-        const masPelis = verMas ? populares: populares.slice(0,5); // si verMas es true, muestra el array completo, sino, solo 5. 
         return (
             <>
-                <section className="card-container">
-                    <h2>Películas Populares</h2>
-                <div> 
-                    {masPelis.length > 0 ? (
-                        masPelis.map((pelicula) => (
-                            <PeliculaCardPopular
-                                key={pelicula.id}
-                                pelicula={pelicula}
-                            />
-                        ))
-                    ) : (
-                        <p>No hay películas populares disponibles.</p> // En caso de que no haya datos
-                    )}
-                </div>
-                <button onClick={() => this.handleVerMas()}> {verMas ? 'ver menos' : 'ver más'} </button>
-                
-            </section>
+            <input 
+                type='text'
+                value={this.state.filterValue}
+                onChange={(e) => this.handleFilter(e)} // cada evento(e) lo caputaros con
+            />
 
-           
+            <button  onClick= {()=> this.handleResetFilter()}> ResetFilter </button>
+           <PeliculaCardPopular  movies= {this.state.filteredMovies} />
+
+
+           <button onClick= {()=> this.handleLoadMore()}> Cargar Más </button>
+
+ 
             </>
-
         )
+
+
     }
 }
 

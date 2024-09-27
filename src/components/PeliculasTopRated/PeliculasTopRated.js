@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import TopRatedCard from '../TopRatedCard/TopRatedCard';
 
+
+
 const API_KEY = "9458a99baf5a9ba3fe341cd43217ef95";
 const peliculasTopRated = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`;
 
@@ -9,11 +11,12 @@ class PeliculasTopRated extends Component{
         super();
         this.state = {
             topRate: [],
-            verMas: false,
+            verMas: 1,
             textoBoton: "Ver más",
            
         };
     }
+    
     handleVerMas(){
         this.setState({
             verMas: !this.state.verMas // lógica: si es true, muestra todas las pelis. Si es false, solo 5. 

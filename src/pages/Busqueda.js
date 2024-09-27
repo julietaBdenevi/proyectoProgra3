@@ -1,5 +1,7 @@
 import { Component } from "react";
+
 import Peliculas from "../components/Peliculas/Peliculas";
+
 
 class Busqueda extends Component {
     constructor(props) {
@@ -11,17 +13,31 @@ class Busqueda extends Component {
     }
 
     componentDidMount() {
-        const query = this.props.location.state.query; 
-        fetch(`⁠ https://api.themoviedb.org/3/search/movie?api_key=9458a99baf5a9ba3fe341cd43217ef95=${query}`)
-            .then((response) => response.json())
+        const query = this.props.location.state.query;
+
+        fetch(`https://api.themoviedb.org/3/search/movie?query=${query}`, 
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYzc2ZDIwMzMyMGZjMzQzZDAwMGU1OGVmODVkN2Y2NSIsIm5iZiI6MTcyNzE4NTAxNS4zMTI3NTksInN1YiI6IjY1NGQxOTMyYjE4ZjMyMDBmZmVjZDRjNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ah_71jyFfszrnPZ94x8bjVsYQSHGCAg2JuI9r3iNb8w`
+                }
+            }
+        )
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Error en la respuesta de la API");
+                }
+                return response.json();
+            })
             .then((data) => {
                 this.setState({
-                    pelis: data.results, 
+                    pelis: data.results,
                     cargando: false,
                 });
             })
             .catch((e) => console.log(e));
     }
+    
 
     render() {
         return (
@@ -34,6 +50,7 @@ class Busqueda extends Component {
                     <Peliculas movies={this.state.pelis} />
                 ) : (
                     <p>Cargando...</p>
+                    
                 )}
             </>
         );

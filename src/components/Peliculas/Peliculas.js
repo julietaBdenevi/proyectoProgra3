@@ -52,41 +52,69 @@ class Peliculas extends Component {
       };
 
     render() {
+        const { movies } = this.props;
+       
         return (
-            <>
-                <section className="card-container">
-                    <h2 className="section-title">Películas Populares</h2>
-                    <div className="cards-wrapper">
-                        {this.state.populares.length > 0 ? (
-                            this.state.populares.map((pelicula) => (
-                                <CardPelicula key={pelicula.id} pelicula={pelicula} esFavorito={this.esFavorito} agregarFav={this.agregarFav} />
-                            ))
-                        ) : (
-                            <p className="no-movies">No hay películas populares disponibles.</p>
-                        )}
-                    </div>
-                    <a className="view-all-link" href="/peliculas/populares">
-                        Ver Todas - Películas Populares
-                    </a>
-                </section>
+            
+            <> 
+                 {movies ? (
+                    <section className="card-container">
+                        <h2 className="section-title">Resultados de búsqueda:</h2>
+                        <div className="cards-wrapper"> 
+                            {movies.length > 0 ? (
+                                movies.map(movie=>(
+                                    <CardPelicula key={movie.id} pelicula={movie} esFavorito={this.esFavorito} agregarFav={this.agregarFav} />
+                                ))
 
-                <section className="card-container">
-                    <h2 className="section-title">Películas Top Rated</h2>
-                    <div className="cards-wrapper">
-                        {this.state.topRate.length > 0 ? (
-                            this.state.topRate.map((pelicula) => (
-                                <CardPelicula key={pelicula.id} pelicula={pelicula} esFavorito={this.esFavorito} agregarFav={this.agregarFav} />
-                            ))
-                        ) : (
-                            <p className="no-movies">No hay películas top rated disponibles.</p>
-                        )}
-                    </div>
-                    <a className="view-all-link" href="/peliculas/toprated">
-                        Ver Todas - Películas Top Rated
-                    </a>
-                </section>
-                
+                            ): (
+                                <p className="no-movies">No hay películas  disponibles.</p>
+                            )}
+
+                            
+                        
+                        </div>
+                    </section>
+                ): (
+                    <>
+                     <section className="card-container">
+                        <h2 className="section-title">Películas Populares</h2>
+                        <div className="cards-wrapper">
+                            {this.state.populares.length > 0 ? (
+                                this.state.populares.map((pelicula) => (
+                                    <CardPelicula key={pelicula.id} pelicula={pelicula} esFavorito={this.esFavorito} agregarFav={this.agregarFav} />
+                                ))
+                            ) : (
+                                <p className="no-movies">No hay películas populares disponibles.</p>
+                            )}
+                        </div>
+                        <a className="view-all-link" href="/peliculas/populares">
+                            Ver Todas - Películas Populares
+                        </a>
+                    </section>
+
+                    <section className="card-container">
+                        <h2 className="section-title">Películas Top Rated</h2>
+                        <div className="cards-wrapper">
+                            {this.state.topRate.length > 0 ? (
+                                this.state.topRate.map((pelicula) => (
+                                    <CardPelicula key={pelicula.id} pelicula={pelicula} esFavorito={this.esFavorito} agregarFav={this.agregarFav} />
+                                ))
+                            ) : (
+                                <p className="no-movies">No hay películas top rated disponibles.</p>
+                            )}
+                        </div>
+                        <a className="view-all-link" href="/peliculas/toprated">
+                            Ver Todas - Películas Top Rated
+                        </a>
+                    </section>
+                    </>
+                   
+                )}
             </>
+               
+                
+            
+            
         );
     }
 }
