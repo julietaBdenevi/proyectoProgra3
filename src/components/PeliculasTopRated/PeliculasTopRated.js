@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CardPelicula from "../CardPelicula/CardPelicula";
 
-
+const API_KEY = "9458a99baf5a9ba3fe341cd43217ef95";
 
 class PeliculasTopRated extends Component {
   constructor() {
@@ -18,15 +18,22 @@ class PeliculasTopRated extends Component {
 
   // Fetch inicial de las películas
   fetchTopRatedMovies = () => {
-    
-    fetch(`https://api.themoviedb.org/3/movie/top_rated?page=${this.state.verMas}`
+    fetch(` https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=${this.state.verMas}`
+  
+
       )
       .then((response) => response.json())
       .then((data) => {
         // Filtra las nuevas películas
         const nuevasPeliculas = data.results.filter(
-          (nuevaPelicula) => !this.state.topRate.some((peliculaExistente) => peliculaExistente.id === nuevaPelicula.id)
+          (nuevaPelicula) =>
+            
+            !this.state.topRate.some(
+              (peliculaExistente) => peliculaExistente.id === nuevaPelicula.id
+              
+            )
         );
+
 
         // Actualiza el estado solo con las nuevas películas
         this.setState((prevState) => ({
@@ -54,23 +61,22 @@ class PeliculasTopRated extends Component {
     }));
   };
 
-//DESCOMENTAR ----------------------------------------------->
-//   handleResetFilter = () => {
-//     this.setState({
-//       filterValue: "",
-//       filteredMovies: this.state.topRate,
-//     });
-//   };
+  handleResetFilter = () => {
+    this.setState({
+      filterValue: "",
+      filteredMovies: this.state.topRate,
+    });
+  };
 
-//   handleFilter = (e) => {
-//     const userValue = e.target.value;
-//     this.setState({
-//       filterValue: userValue,
-//       filteredMovies: this.state.topRate.filter((movie) =>
-//         movie.title.toLowerCase().includes(userValue.toLowerCase())
-//       ),
-//     });
-//   };
+  handleFilter = (e) => {
+    const userValue = e.target.value;
+    this.setState({
+      filterValue: userValue,
+      filteredMovies: this.state.topRate.filter((movie) =>
+        movie.title.toLowerCase().includes(userValue.toLowerCase())
+      ),
+    });
+  };
 
   agregarFav = (id) => {
     let { favoritos } = this.state;
@@ -94,14 +100,13 @@ class PeliculasTopRated extends Component {
 
     return (
       <section className="card-container">
-        <h2>Películas Top Rated</h2>
-        {/* DESCOMENTAR ------>>>> */}
-        {/* <input
+        <h2>Películas Populares</h2>
+        <input
           type="text"
           value={this.state.filterValue}
-         // onChange={(e) => this.handleFilter(e)}
-        /> */}
-        {/* <button onClick={() => this.handleResetFilter()}>Reset Filter</button> */}
+          onChange={(e) => this.handleFilter(e)}
+        />
+        <button onClick={() => this.handleResetFilter()}>Reset Filter</button>
         <div>
           {peliculasAMostrar.length > 0 ? (
             peliculasAMostrar.map((pelicula) => (

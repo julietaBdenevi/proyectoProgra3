@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CardPelicula from "../CardPelicula/CardPelicula";
 
-
+const API_KEY = "9458a99baf5a9ba3fe341cd43217ef95";
 
 class PeliculasPopulares extends Component {
   constructor() {
@@ -18,7 +18,8 @@ class PeliculasPopulares extends Component {
 
   // Fetch inicial de las películas
   fetchTopRatedMovies = () => {
-    fetch(`https://api.themoviedb.org/3/movie/top_rated?page=${this.state.verMas}`
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${this.state.verMas}`
+  
 
       )
       .then((response) => response.json())
@@ -60,23 +61,22 @@ class PeliculasPopulares extends Component {
     }));
   };
 
-  // ----- DESCOMENTA ----> 
-//   handleResetFilter = () => {
-//     this.setState({
-//       filterValue: "",
-//       filteredMovies: this.state.topRate,
-//     });
-//   };
+  handleResetFilter = () => {
+    this.setState({
+      filterValue: "",
+      filteredMovies: this.state.topRate,
+    });
+  };
 
-//   handleFilter = (e) => {
-//     const userValue = e.target.value;
-//     this.setState({
-//       filterValue: userValue,
-//       filteredMovies: this.state.topRate.filter((movie) =>
-//         movie.title.toLowerCase().includes(userValue.toLowerCase())
-//       ),
-//     });
-//   };
+  handleFilter = (e) => {
+    const userValue = e.target.value;
+    this.setState({
+      filterValue: userValue,
+      filteredMovies: this.state.topRate.filter((movie) =>
+        movie.title.toLowerCase().includes(userValue.toLowerCase())
+      ),
+    });
+  };
 
   agregarFav = (id) => {
     let { favoritos } = this.state;
@@ -101,14 +101,12 @@ class PeliculasPopulares extends Component {
     return (
       <section className="card-container">
         <h2>Películas Populares</h2>
-         {/* ----- DESCOMENTA -----
         <input
           type="text"
           value={this.state.filterValue}
           onChange={(e) => this.handleFilter(e)}
         />
-        <button onClick={() => this.handleResetFilter()}>Reset Filter</button> */}
-
+        <button onClick={() => this.handleResetFilter()}>Reset Filter</button>
         <div>
           {peliculasAMostrar.length > 0 ? (
             peliculasAMostrar.map((pelicula) => (
