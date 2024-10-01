@@ -44,75 +44,82 @@ class Peliculas extends Component {
           favoritos.push(id);
         }
         localStorage.setItem("favoritos", JSON.stringify(favoritos));
-          this.setState({ favoritos });
+        this.setState({ favoritos });
       };
     
-      esFavorito = (id) => {
+    esFavorito = (id) => {
         return this.state.favoritos.includes(id);
-      };
+    };
 
     render() {
         const { movies } = this.props;
        
         return (
-            
             <> 
-                 {movies ? (
+                {movies ? (
                     <section className="card-container">
                         <h2 className="section-title">Resultados de búsqueda:</h2>
                         <div className="cards-wrapper"> 
                             {movies.length > 0 ? (
-                                movies.map(movie=>(
-                                    <CardPelicula key={movie.id} pelicula={movie} esFavorito={this.esFavorito} agregarFav={this.agregarFav} />
+                                movies.map((movie, index) => (
+                                    <CardPelicula 
+                                        key={movie.id} 
+                                        pelicula={movie} 
+                                        esFavorito={this.esFavorito} 
+                                        agregarFav={this.agregarFav} 
+                                    />
                                 ))
-
-                            ): (
-                                <p className="no-movies">No hay películas  disponibles.</p>
+                            ) : (
+                                <p className="no-movies">No hay películas disponibles.</p>
                             )}
-
                         </div>
                     </section>
-                ): (
+                ) : (
                     <>
-                     <section className="card-container">
-                        <h2 className="section-title">Películas Populares</h2>
-                        <div className="cards-wrapper">
-                            {this.state.populares.length > 0 ? (
-                                this.state.populares.map((pelicula) => (
-                                    <CardPelicula key={pelicula.id} pelicula={pelicula} esFavorito={this.esFavorito} agregarFav={this.agregarFav} />
-                                ))
-                            ) : (
-                                <p className="no-movies">No hay películas populares disponibles.</p>
-                            )}
-                        </div>
-                        <a className="view-all-link" href="/peliculas/populares">
-                            Ver Todas - Películas Populares
-                        </a>
-                    </section>
+                        <section className="card-container">
+                            <h2 className="section-title">Películas Populares</h2>
+                            <div className="cards-wrapper">
+                                {this.state.populares.length > 0 ? (
+                                    this.state.populares.map((pelicula, index) => (
+                                        <CardPelicula 
+                                            key={pelicula.id} 
+                                            pelicula={pelicula} 
+                                            esFavorito={this.esFavorito} 
+                                            agregarFav={this.agregarFav} 
+                                        />
+                                    ))
+                                ) : (
+                                    <p className="no-movies">No hay películas populares disponibles.</p>
+                                )}
+                            </div>
+                            <a className="view-all-link" href="/peliculas/populares">
+                                Ver Todas - Películas Populares
+                            </a>
+                        </section>
 
-                    <section className="card-container">
-                        <h2 className="section-title">Películas Top Rated</h2>
-                        <div className="cards-wrapper">
-                            {this.state.topRate.length > 0 ? (
-                                this.state.topRate.map((pelicula) => (
-                                    <CardPelicula key={pelicula.id} pelicula={pelicula} esFavorito={this.esFavorito} agregarFav={this.agregarFav} />
-                                ))
-                            ) : (
-                                <p className="no-movies">No hay películas top rated disponibles.</p>
-                            )}
-                        </div>
-                        <a className="view-all-link" href="/peliculas/toprated">
-                            Ver Todas - Películas Top Rated
-                        </a>
-                    </section>
+                        <section className="card-container">
+                            <h2 className="section-title">Películas Top Rated</h2>
+                            <div className="cards-wrapper">
+                                {this.state.topRate.length > 0 ? (
+                                    this.state.topRate.map((pelicula, index) => (
+                                        <CardPelicula 
+                                            key={pelicula.id} 
+                                            pelicula={pelicula} 
+                                            esFavorito={this.esFavorito} 
+                                            agregarFav={this.agregarFav} 
+                                        />
+                                    ))
+                                ) : (
+                                    <p className="no-movies">No hay películas top rated disponibles.</p>
+                                )}
+                            </div>
+                            <a className="view-all-link" href="/peliculas/toprated">
+                                Ver Todas - Películas Top Rated
+                            </a>
+                        </section>
                     </>
-                   
                 )}
             </>
-               
-                
-            
-            
         );
     }
 }

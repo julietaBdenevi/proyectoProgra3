@@ -4,6 +4,7 @@
   background-color: #141414; 
   border-radius: 8px; 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+  text-align: center; /* Asegura que todo esté centrado */
 }
 
 .section-title {
@@ -14,16 +15,16 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
   background-color: #383838;
   border-radius: 8px;
+  padding: 10px; /* Añadí padding para mejorar la visibilidad */
 }
 
-
+/* Cambié el cards-wrapper para que sea un grid */
 .cards-wrapper {
-  display: flex;
-  overflow-x: auto; 
-  flex-wrap: nowrap; 
-  gap: 20px;
-  justify-content: center;
-  padding: 10px; 
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 4 columnas de igual ancho */
+  grid-gap: 20px; /* Espacio entre tarjetas */
+  justify-items: center; /* Centra las tarjetas en cada columna */
+  padding: 10px;
 }
 
 .card {
@@ -67,22 +68,12 @@
   text-decoration: none; 
 }
 
-.cards-wrapper {
-  display: flex;
-  overflow-x: auto; 
-  flex-wrap: nowrap; 
-  gap: 20px;
-  justify-content: center; 
-  padding: 10px; 
-}
-
-.card-container {
-  text-align: center; 
-}
-
+/* Estilo para el cuerpo */
 body {
   background-color: #383838;
 }
+
+/* Estilos responsivos */
 @media (max-width: 390px) {
   .card-container {
       margin: 10px 0;
@@ -96,10 +87,9 @@ body {
   }
 
   .cards-wrapper {
-      display: flex;
-      flex-direction: column;
-      padding: 5px;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: 1fr; /* 1 columna para pantallas pequeñas */
+      grid-gap: 10px;
   }
 
   .card {
