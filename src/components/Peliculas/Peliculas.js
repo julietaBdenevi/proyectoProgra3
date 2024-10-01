@@ -70,8 +70,6 @@ class Peliculas extends Component {
                                 <p className="no-movies">No hay películas  disponibles.</p>
                             )}
 
-                            
-                        
                         </div>
                     </section>
                 ): (
